@@ -1,4 +1,4 @@
-/* 
+/*
  * MelonCAN Library Teensy 3.1/3.2
  * Copyright (c) 2015, Paul Guenette, pfguenette@gmail.com
  *
@@ -28,7 +28,7 @@
  * that the FlexCAN library does, and in fact expects the user to use the
  * FlexCAN message types.  However, it is capable of handling both reads and
  * writes with the same functions on either interface.
- * 
+ *
  */
 
 #ifndef _MELONCAN_h
@@ -46,26 +46,26 @@
 
 typedef enum
 {
-	flex_controller,
-	mcp2515_controller
+    flex_controller,
+    mcp2515_controller
 } can_controller_type;
 
 class MelonCAN
 {
 private:
-	can_controller_type controllerType;
-	FlexCAN* myFlex;
-	MCP_CAN* myMCP;
-	uint8_t chipSelect;
-	uint32_t selectedBaud;
+    can_controller_type controllerType;
+    FlexCAN* myFlex;
+    MCP_CAN* myMCP;
+    uint8_t chipSelect;
+    uint32_t selectedBaud;
 
 public:
-	MelonCAN(can_controller_type = flex_controller, uint8_t cs = 0);
-	uint8_t init(uint32_t baud);
-	uint8_t begin();
-	void write(const CAN_message_t &msg);
-	void read(CAN_message_t &msg);
-	uint8_t available();
+    MelonCAN(can_controller_type = flex_controller, uint8_t cs = 0);
+    uint8_t init(uint32_t baud);
+    uint8_t begin();
+    void write(const CAN_message_t &msg);
+    void read(CAN_message_t &msg);
+    uint8_t available();
 };
 
 #endif
