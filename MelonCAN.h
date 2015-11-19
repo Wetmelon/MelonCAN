@@ -44,7 +44,7 @@
 #include <FlexCAN.h>
 #include <mcp_can.h>
 
-typedef enum can_controller_type
+typedef enum
 {
 	flex_controller,
 	mcp2515_controller
@@ -60,7 +60,7 @@ private:
 	uint32_t selectedBaud;
 
 public:
-	MelonCAN(can_controller_type, uint8_t cs = 0);
+	MelonCAN(can_controller_type = flex_controller, uint8_t cs = 0);
 	uint8_t init(uint32_t baud);
 	uint8_t begin();
 	void write(const CAN_message_t &msg);
